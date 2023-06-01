@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "captionTranslator",
+    "version": "1.0.0",
+    "content_scripts": [
+        {
+          "matches": ["https://teamtreehouse.com/*"],
+          "js": ["scripts/content-scripts.js"]
+        }
+      ],
+    "background": {
+      "service_worker": "sw.js",
+      "type": "module"
+    },
+    "commands": {
+      "increase": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+Right"
+        },
+        "description": "Increase paraIndex"
+      },
+      "decrease": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+Left"
+        },
+        "description": "Decrease paraIndex"
+      }
+    }
+}
