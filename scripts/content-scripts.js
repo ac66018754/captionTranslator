@@ -76,7 +76,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 
 //翻譯api
 async function translateWord(word) {
-    const  apiKey  = "";
+    const  apiKey  = "5eabcabefda245a5976ea9c44321535a";
   
     if (!apiKey) {
        console.error('API Key is not set. Please set it in the extension options.');
