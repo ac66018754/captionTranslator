@@ -15,15 +15,27 @@
     "commands": {
       "increase": {
         "suggested_key": {
-          "default": "Ctrl+Shift+Right"
+          "default": "Ctrl+Right"
         },
         "description": "Increase paraIndex"
       },
       "decrease": {
         "suggested_key": {
-          "default": "Ctrl+Shift+Left"
+          "default": "Ctrl+Left"
         },
         "description": "Decrease paraIndex"
+      },
+      "moveToStart": {
+        "suggested_key": {
+          "default": "Ctrl+Down"
+        },
+        "description": "zero paraIndex"
+      },
+      "moveToMiddle": {
+        "suggested_key": {
+          "default": "Ctrl+Up"
+        },
+        "description": "middle paraIndex"
       }
     }
 }
