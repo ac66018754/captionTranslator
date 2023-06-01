@@ -43,11 +43,19 @@ translateWord(article).then((result)=>{
 let paraIndex=0;
 let lastCaption="";
 function captionChange(){
-   console.log(paraIndex)
-   if(targetSpan.innerHTML.includes(".")&&targetSpan.innerHTML!=lastCaption){
+   if(targetSpan.innerHTML!=lastCaption){
+      if(lastCaption.includes("."))paraIndex++
       lastCaption=targetSpan.innerHTML
-      paraIndex++
    }
+   // if(lastCaption=="")lastCaption=targetSpan.innerHTML
+   // if(lastCaption.includes(".")&&targetSpan.innerHTML!=lastCaption){
+   //    lastCaption=targetSpan.innerHTML
+   //    paraIndex++
+   // }
+   // else{
+   //    console.log("前",lastCaption.includes("."),lastCaption)
+   //    console.log("後",targetSpan.innerHTML!=lastCaption)
+   // }
    newSibling.innerHTML= paragraphs[paraIndex];
    requestAnimationFrame(captionChange);
 }
@@ -55,16 +63,20 @@ function captionChange(){
 //使用快捷鍵來+-paraIndex
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
    if (message.action === 'increase') {
-     paraIndex++;
+      paraIndex++;
    } else if (message.action === 'decrease') {
-     paraIndex--;
+      paraIndex--;
+   } else if (message.action === 'start') {
+      paraIndex=0;
+   } else if (message.action === 'middle') {
+      paraIndex=paragraphs.length/2;
    }
  });
 
 
 //翻譯api
 async function translateWord(word) {
-    const  apiKey  = "";
+    const  apiKey  = "5eabcabefda245a5976ea9c44321535a";
   
     if (!apiKey) {
        console.error('API Key is not set. Please set it in the extension options.');
