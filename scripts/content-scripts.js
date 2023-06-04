@@ -44,7 +44,7 @@ let paraIndex=0;
 let lastCaption="";
 function captionChange(){
    if(targetSpan.innerHTML!=lastCaption){
-      if(lastCaption.includes("."))paraIndex++
+      if(lastCaption[lastCaption.length-1]==".")paraIndex++
       lastCaption=targetSpan.innerHTML
    }
    // if(lastCaption=="")lastCaption=targetSpan.innerHTML
@@ -76,7 +76,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 
 //翻譯api
 async function translateWord(word) {
-    const  apiKey  = "5eabcabefda245a5976ea9c44321535a";
+    const  apiKey  = "";
   
     if (!apiKey) {
        console.error('API Key is not set. Please set it in the extension options.');
